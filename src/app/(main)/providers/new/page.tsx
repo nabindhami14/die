@@ -51,7 +51,7 @@ const NewProvider = () => {
   const hitUri = async (data: any) => {
     try {
       const res = await axios.post(
-        "http://localhost:4000/api/v1/admin/thirdparty",
+        "http://localhost:5000/api/v1/admin/thirdparty",
         data
       );
       return res.data;

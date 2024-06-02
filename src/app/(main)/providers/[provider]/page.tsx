@@ -17,7 +17,7 @@ export interface Endpoint {
 
 async function getData(provider: string) {
   const res = await fetch(
-    `http://localhost:4000/api/v1/integrations/${provider}/endpoints`,
+    `http://localhost:5000/api/v1/integrations/${provider}/endpoints`,
     { cache: "no-store" }
   );
   if (!res.ok) {

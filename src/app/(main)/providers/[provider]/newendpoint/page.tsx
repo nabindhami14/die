@@ -31,7 +31,7 @@ const NewEndpoint = ({ params: { provider } }: ProviderParams) => {
   const hitUri = async (data: any) => {
     try {
       const res = await axios.post(
-        `http://localhost:4000/api/v1/admin/${provider}/endpoints`,
+        `http://localhost:5000/api/v1/admin/${provider}/endpoints`,
         data
       );
       return res.data;
@@ -77,9 +77,9 @@ const NewEndpoint = ({ params: { provider } }: ProviderParams) => {
           : undefined,
         has_params: data.hasParams,
         params: data.hasParams ? data.params : undefined,
-        succcess_codes: data.succesCodes,
+        success_codes: data.succesCodes,
         error_codes: data.errorCodes,
-        succcess_response: data.successResonse,
+        success_response: data.successResonse,
         error_response: data.errorResponse,
 
         has_static_body: data.hasStaticRequestBody,
