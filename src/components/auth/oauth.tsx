@@ -6,15 +6,13 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-const BasicAuth = ({ setPair }: any) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+const Oauth = ({ setPair }: any) => {
+  const [token, setToken] = useState("");
   const [clicked, setClicked] = useState(false);
 
   const handleSubmit = () => {
     setPair({
-      username,
-      password,
+      token,
     });
     setClicked(true);
   };
@@ -23,15 +21,9 @@ const BasicAuth = ({ setPair }: any) => {
     <div className="space-y-6">
       <Input
         type="text"
-        placeholder="username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <Input
-        type="password"
-        placeholder="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        placeholder="token"
+        value={token}
+        onChange={(e) => setToken(e.target.value)}
       />
 
       {!clicked && (
@@ -43,4 +35,4 @@ const BasicAuth = ({ setPair }: any) => {
   );
 };
 
-export default BasicAuth;
+export default Oauth;
