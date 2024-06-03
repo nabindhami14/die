@@ -33,6 +33,7 @@ import Oauth from "@/components/auth/oauth";
 import Loading from "@/components/loading";
 import Jwt from "@/components/auth/jwt";
 import { useRouter } from "next/navigation";
+import None from "@/components/auth/none";
 
 const formSchema = z.object({
   name: z.string().min(2).max(50),
@@ -78,7 +79,7 @@ const NewProvider = () => {
       description: values.description,
       base_url: values.base_url,
       auth_type_id: +values.auth_type_id,
-      auth_payload: authPayload,
+      auth_payload: +values.auth_type_id === 6 ? undefined : authPayload,
     };
     mutation.mutate(options);
   }
@@ -89,6 +90,7 @@ const NewProvider = () => {
     3: <ApiKey setPair={setAuthPayload} />,
     4: <Oauth setPair={setAuthPayload} />,
     5: <Jwt setPair={setAuthPayload} />,
+    6: <None />,
   };
 
   if (mutation.isPending) {
@@ -162,6 +164,7 @@ const NewProvider = () => {
                     <SelectItem value="3">API Key</SelectItem>
                     <SelectItem value="4">OAuth</SelectItem>
                     <SelectItem value="5">Jwt</SelectItem>
+                    <SelectItem value="6">None</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />

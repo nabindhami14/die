@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import UpdateActiveDialog from "@/components/dialog/update-active-dialog";
 
 interface ProviderParams {
   params: {
@@ -34,9 +35,13 @@ const Provider = async ({ params: { provider } }: ProviderParams) => {
         <h1 className=" text-3xl font-semibold tracking-tight capitalize">
           {provider}
         </h1>
-        <Link href={`/providers/${provider}/newendpoint`}>
-          <Button variant="ghost">Create Endpoint</Button>
-        </Link>
+        <div className="flex items-center justify-center gap-4">
+          <Link href={`/providers/${provider}/newendpoint`}>
+            <Button variant="ghost">Create Endpoint</Button>
+          </Link>
+
+          <UpdateActiveDialog provider={provider} />
+        </div>
       </div>
       {res.endpoints.length > 0 ? (
         <div className="grid grid-cols-2 gap-4 w-full">

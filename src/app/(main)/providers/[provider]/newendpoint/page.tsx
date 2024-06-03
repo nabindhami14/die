@@ -16,7 +16,6 @@ import useEndpointContext from "@/context/useEndpointContext";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { revalidatePath } from "next/cache";
 
 interface ProviderParams {
   params: {
@@ -44,11 +43,11 @@ const NewEndpoint = ({ params: { provider } }: ProviderParams) => {
     mutationFn: hitUri,
     onSuccess: (data) => {
       console.log(data, "response data");
-      router.back();
       router.refresh();
+      router.back();
     },
     onError: (error) => {
-      console.log(error);
+      console.log(error, "error123");
     },
   });
 
