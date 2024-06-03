@@ -56,7 +56,7 @@ const UpdateActiveDialog = ({ provider }: { provider: string }) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button>Update Active</Button>
+        <Button variant={"ghost"}>Update Active</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
